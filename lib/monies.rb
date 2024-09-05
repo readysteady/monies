@@ -389,7 +389,7 @@ class Monies
   def divide(value, scale, divisor, max_scale)
     quotient, carry = 0, 0
 
-    value.digits.reverse_each do |digit|
+    value.abs.digits.reverse_each do |digit|
       dividend = carry + digit
 
       quotient = (quotient * BASE) + (dividend / divisor)
@@ -410,6 +410,8 @@ class Monies
 
       iterations -= 1
     end
+
+    quotient = -quotient if value.negative?
 
     self.class.new(quotient, scale, @currency)
   end

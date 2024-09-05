@@ -286,6 +286,9 @@ describe Monies do
         expect(Monies.new(92, 2, 'GBP') / Monies.new(4, 1, 'GBP')).to eq(Monies.new(23, 1, 'GBP'))
         expect(Monies.new(12, 5, 'GBP') / Monies.new(8, 3, 'GBP')).to eq(Monies.new(15, 3, 'GBP'))
         expect(Monies.new(1, 1, 'GBP') / Monies.new(5, 4, 'GBP')).to eq(Monies.new(200, 0, 'GBP'))
+        expect(Monies.new(100, 0, 'GBP') / Monies.new(-20, 0, 'GBP')).to eq(Monies.new(-5, 0, 'GBP'))
+        expect(Monies.new(-100, 0, 'GBP') / Monies.new(20, 0, 'GBP')).to eq(Monies.new(-5, 0, 'GBP'))
+        expect(Monies.new(-100, 0, 'GBP') / Monies.new(-20, 0, 'GBP')).to eq(Monies.new(5, 0, 'GBP'))
       end
     end
 
@@ -299,6 +302,9 @@ describe Monies do
         expect(Monies.new(1224, 3, 'GBP') / 8).to eq(Monies.new(153, 3, 'GBP'))
         expect(Monies.new(917, 0, 'GBP') / 6).to eq(Monies.new(1528333333333333333, 16, 'GBP'))
         expect(Monies.new(1999, 3, 'GBP') / 3).to eq(Monies.new(6663333333333333, 16, 'GBP'))
+        expect(Monies.new(888, 0, 'GBP') / -8).to eq(Monies.new(-111, 0, 'GBP'))
+        expect(Monies.new(-888, 0, 'GBP') / 8).to eq(Monies.new(-111, 0, 'GBP'))
+        expect(Monies.new(-888, 0, 'GBP') / -8).to eq(Monies.new(111, 0, 'GBP'))
       end
     end
 
