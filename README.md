@@ -76,6 +76,12 @@ the maximum number of decimal places you want:
 Monies(1, 'USD').div(9, 100)
 ```
 
+Use the #allocate method to split an amount into a number of smaller amounts:
+
+```ruby
+installments = Monies(1, 'USD').allocate(3, 2)
+```
+
 
 ## Currency conversion
 

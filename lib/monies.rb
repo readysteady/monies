@@ -195,6 +195,22 @@ class Monies
     self.class.new(@value.abs, @scale, @currency)
   end
 
+  def allocate(n, digits)
+    unless n.is_a?(Integer) && n >= 1
+      raise ArgumentError, 'n must be greater than or equal to 1'
+    end
+
+    quotient = (self / n).truncate(digits)
+
+    remainder = self - quotient * n
+
+    array = Array.new(n) { quotient }
+
+    array[-1] += remainder unless remainder.zero?
+
+    array
+  end
+
   def ceil(digits = 0)
     round(digits, :ceil)
   end

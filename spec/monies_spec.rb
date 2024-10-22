@@ -407,6 +407,39 @@ describe Monies do
     end
   end
 
+  describe '#allocate' do
+    it 'returns an array' do
+      expect(Monies.new(100, 0, 'GBP').allocate(3, 0)).to eq([
+        Monies.new(33, 0, 'GBP'),
+        Monies.new(33, 0, 'GBP'),
+        Monies.new(34, 0, 'GBP'),
+      ])
+
+      expect(Monies.new(100, 0, 'GBP').allocate(3, 2)).to eq([
+        Monies.new(3333, 2, 'GBP'),
+        Monies.new(3333, 2, 'GBP'),
+        Monies.new(3334, 2, 'GBP'),
+      ])
+
+      expect(Monies.new(5, 2, 'GBP').allocate(2, 2)).to eq([
+        Monies.new(2, 2, 'GBP'),
+        Monies.new(3, 2, 'GBP'),
+      ])
+    end
+
+    context 'with integer less than 1' do
+      it 'raises an exception' do
+        expect { Monies.new(100, 0, 'GBP').allocate(0, 0) }.to raise_error(ArgumentError)
+      end
+    end
+
+    context 'with another type of object' do
+      it 'raises an exception' do
+        expect { Monies.new(100, 0, 'GBP').allocate(Object.new, 0) }.to raise_error(ArgumentError)
+      end
+    end
+  end
+
   describe '#ceil' do
     it 'returns an instance' do
       expect(Monies.new(314159, 5, 'GBP').ceil).to eq(Monies.new(4, 0, 'GBP'))
