@@ -1,5 +1,9 @@
 # monies
 
+![Gem Version](https://badge.fury.io/rb/monies.svg)
+![Test Status](https://github.com/readysteady/monies/actions/workflows/test.yml/badge.svg)
+
+
 Ruby gem for representing monetary values.
 
 Pure Ruby—compatible with MRI/CRuby, JRuby, TruffleRuby, and Natalie.
