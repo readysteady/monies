@@ -551,6 +551,14 @@ describe Monies do
     end
   end
 
+  describe '#fix' do
+    it 'returns an instance' do
+      expect(Monies.new(123, 2, 'GBP').fix).to eq(Monies.new(1, 0, 'GBP'))
+      expect(Monies.new(123, 1, 'GBP').fix).to eq(Monies.new(12, 0, 'GBP'))
+      expect(Monies.new(123, 0, 'GBP').fix).to eq(Monies.new(123, 0, 'GBP'))
+    end
+  end
+
   describe '#floor' do
     it 'returns an instance' do
       expect(Monies.new(314159, 5, 'GBP').floor).to eq(Monies.new(3, 0, 'GBP'))

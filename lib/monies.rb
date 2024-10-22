@@ -287,6 +287,10 @@ class Monies
     raise TypeError, "#{self.class} can't be divided by #{other.class}"
   end
 
+  def fix
+    self.class.new(@value / (BASE ** @scale), 0, @currency)
+  end
+
   def floor(digits = 0)
     round(digits, :floor)
   end
