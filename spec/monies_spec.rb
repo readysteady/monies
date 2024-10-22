@@ -567,6 +567,14 @@ describe Monies do
     end
   end
 
+  describe '#frac' do
+    it 'returns an instance' do
+      expect(Monies.new(123, 2, 'GBP').frac).to eq(Monies.new(23, 2, 'GBP'))
+      expect(Monies.new(123, 1, 'GBP').frac).to eq(Monies.new(3, 1, 'GBP'))
+      expect(Monies.new(123, 0, 'GBP').frac).to eq(Monies.new(0, 0, 'GBP'))
+    end
+  end
+
   describe '#inspect' do
     it 'returns a string' do
       expect(subject.inspect).to eq('#<Monies: 1.99 GBP>')

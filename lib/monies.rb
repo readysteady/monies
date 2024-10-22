@@ -295,6 +295,10 @@ class Monies
     round(digits, :floor)
   end
 
+  def frac
+    self - fix
+  end
+
   def inspect
     "#<#{self.class.name}: #{Monies::Digits.dump(self)} #{@currency}>"
   end
