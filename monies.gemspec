@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'monies'
-  s.version = '1.0.1'
+  s.version = '1.1.0'
   s.license = 'LGPL-3.0'
   s.platform = Gem::Platform::RUBY
   s.authors = ['Tim Craft']
@@ -15,5 +15,6 @@ Gem::Specification.new do |s|
     'homepage' => 'https://github.com/readysteady/monies',
     'source_code_uri' => 'https://github.com/readysteady/monies',
     'bug_tracker_uri' => 'https://github.com/readysteady/monies/issues',
+    'changelog_uri' => 'https://github.com/readysteady/monies/blob/main/CHANGES.md'
   }
 end
