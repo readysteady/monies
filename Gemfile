@@ -18,3 +18,7 @@ end
 platforms :jruby do
   gem 'jdbc-sqlite3', github: 'jruby/activerecord-jdbc-adapter', glob: 'jdbc-sqlite3/jdbc-sqlite3.gemspec', group: :test
 end
+
+platform :truffleruby do
+  gem 'logger', '1.6.2'
+end
