@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.description = 'Ruby gem for representing monetary values'
   s.summary = 'See description'
   s.files = Dir.glob('lib/**/*.rb') + %w[LICENSE.txt README.md monies.gemspec]
-  s.required_ruby_version = '>= 3.1.0'
+  s.required_ruby_version = '>= 3.2.0'
   s.require_path = 'lib'
   s.metadata = {
     'homepage' => 'https://github.com/readysteady/monies',
