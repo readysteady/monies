@@ -116,6 +116,7 @@ class Monies
       end
 
       scale = other.scale
+      scale = length - exponent if length < scale
 
       return reduce(@value * value, @scale + scale)
     end
@@ -510,6 +511,7 @@ def Monies(object, currency = Monies.currency)
       end
 
       scale = object.scale
+      scale = length - exponent if length < scale
 
       return Monies.new(value, scale, currency)
     end

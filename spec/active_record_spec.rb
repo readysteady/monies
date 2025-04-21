@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'active_record'
 
-describe ActiveRecord, skip: (RUBY_ENGINE == 'jruby') do
+describe ActiveRecord do
   let(:monies) { Monies.new(123, 2, currency) }
   let(:currency) { 'GBP' }
   let(:instance) { @model.first }

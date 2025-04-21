@@ -184,7 +184,7 @@ describe Monies do
     end
 
     context 'with percentage' do
-      it 'returns an instance', skip: (RUBY_ENGINE == 'jruby') do
+      it 'returns an instance' do
         expect(subject * Percentage.new(20)).to eq(Monies.new(398, 3, 'GBP'))
       end
     end
@@ -906,7 +906,7 @@ RSpec.describe 'Monies method' do
   end
 
   context 'with bigdecimal' do
-    it 'returns an instance', skip: (RUBY_ENGINE == 'jruby') do
+    it 'returns an instance' do
       expect(Monies(BigDecimal('444'), 'GBP')).to eq(Monies.new(444, 0, 'GBP'))
       expect(Monies(BigDecimal('400'), 'GBP')).to eq(Monies.new(400, 0, 'GBP'))
       expect(Monies(BigDecimal('40'), 'GBP')).to eq(Monies.new(40, 0, 'GBP'))
