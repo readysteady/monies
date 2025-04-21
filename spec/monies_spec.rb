@@ -935,4 +935,18 @@ RSpec.describe 'Monies method' do
       expect { Monies(1.23) }.to raise_error(TypeError)
     end
   end
+
+  context 'with exception: false' do
+    context 'with invalid string' do
+      it 'returns nil' do
+        expect(Monies('', 'GBP', exception: false)).to be_nil
+      end
+    end
+
+    context 'with another type of object' do
+      it 'returns nil' do
+        expect(Monies(1.23, exception: false)).to be_nil
+      end
+    end
+  end
 end

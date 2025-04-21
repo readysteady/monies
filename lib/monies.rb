@@ -488,7 +488,7 @@ class Monies
   end
 end
 
-def Monies(object, currency = Monies.currency)
+def Monies(object, currency = Monies.currency, exception: true)
   case object
   when Monies
     object
@@ -499,7 +499,7 @@ def Monies(object, currency = Monies.currency)
   when String
     if Monies::Digits.match?(object)
       Monies::Digits.load(object, currency)
-    else
+    elsif exception
       raise ArgumentError, "invalid value for Monies(): #{object.inspect}"
     end
   else
@@ -520,6 +520,6 @@ def Monies(object, currency = Monies.currency)
       return Monies.new(value, scale, currency)
     end
 
-    raise TypeError, "can't convert #{object.inspect} into #{Monies}"
+    raise TypeError, "can't convert #{object.inspect} into #{Monies}" if exception
   end
 end
