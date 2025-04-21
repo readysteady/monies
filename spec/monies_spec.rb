@@ -924,6 +924,12 @@ RSpec.describe 'Monies method' do
     end
   end
 
+  context 'with invalid string' do
+    it 'raises an exception' do
+      expect { Monies('', 'GBP') }.to raise_error(ArgumentError)
+    end
+  end
+
   context 'with another type of object' do
     it 'raises an exception' do
       expect { Monies(1.23) }.to raise_error(TypeError)

@@ -62,4 +62,35 @@ describe Monies::Digits do
       expect(described_class.load('-0.00001', currency)).to eq(Monies.new(-1, 5, currency))
     end
   end
+
+  describe '.match?' do
+    context 'with a valid string' do
+      it 'returns true' do
+        expect(described_class.match?('0')).to eq(true)
+        expect(described_class.match?('1')).to eq(true)
+        expect(described_class.match?('0.00')).to eq(true)
+        expect(described_class.match?('1.00')).to eq(true)
+        expect(described_class.match?('0.12')).to eq(true)
+        expect(described_class.match?('1.23')).to eq(true)
+        expect(described_class.match?('0.00001')).to eq(true)
+        expect(described_class.match?('0.066')).to eq(true)
+        expect(described_class.match?('1.99')).to eq(true)
+        expect(described_class.match?('-1.99')).to eq(true)
+        expect(described_class.match?('-1.23')).to eq(true)
+        expect(described_class.match?('-0.11')).to eq(true)
+        expect(described_class.match?('-0.00001')).to eq(true)
+      end
+    end
+
+    context 'with an invalid string' do
+      it 'returns false' do
+        expect(described_class.match?('')).to eq(false)
+        expect(described_class.match?('-')).to eq(false)
+        expect(described_class.match?(' ')).to eq(false)
+        expect(described_class.match?('invalid')).to eq(false)
+        expect(described_class.match?('.0')).to eq(false)
+        expect(described_class.match?('0..0')).to eq(false)
+      end
+    end
+  end
 end

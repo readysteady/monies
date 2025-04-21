@@ -60,4 +60,10 @@ module Monies::Digits
 
     Monies.new(value, scale, currency)
   end
+
+  REGEXP = /\A\-?\d+(\.\d+)?\z/
+
+  def self.match?(string)
+    REGEXP.match?(string)
+  end
 end

@@ -497,7 +497,11 @@ def Monies(object, currency = Monies.currency)
   when Rational
     Monies.new(object.numerator, 0, currency) / object.denominator
   when String
-    Monies::Digits.load(object, currency)
+    if Monies::Digits.match?(object)
+      Monies::Digits.load(object, currency)
+    else
+      raise ArgumentError, "invalid value for Monies(): #{object.inspect}"
+    end
   else
     if defined?(BigDecimal) && object.is_a?(BigDecimal)
       sign, significant_digits, base, exponent = object.split
