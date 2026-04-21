@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 group :test do
   gem 'activerecord', '~> 8'
   gem 'bigdecimal', '~> 3'
+  gem 'json', '~> 2'
   gem 'percentage', '~> 2'
   gem 'rspec-core', '~> 3'
   gem 'rspec-expectations', '~> 3'

@@ -393,6 +393,10 @@ class Monies
     @value / BASE ** @scale
   end
 
+  def to_json(state = nil, *)
+    JSON::State.from_state(state).generate(self.class.dump(self))
+  end
+
   def to_r
     Rational(@value, BASE ** @scale)
   end
