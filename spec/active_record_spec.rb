@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'sqlite3'
 require 'active_record'
 
 describe ActiveRecord do

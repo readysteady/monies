@@ -9,9 +9,5 @@ group :test do
   gem 'sequel', '~> 5'
   gem 'simplecov'
   gem 'sqlite3', '~> 2', platform: :ruby
-end
-
-platforms :jruby do
-  gem 'activerecord-jdbc-adapter', '~> 71.0', group: :test
-  gem 'jdbc-sqlite3', github: 'jruby/activerecord-jdbc-adapter', glob: 'jdbc-sqlite3/jdbc-sqlite3.gemspec', group: :test
+  gem 'sqlite3-ffi', platform: :jruby
 end

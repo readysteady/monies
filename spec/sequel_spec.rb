@@ -7,11 +7,7 @@ describe Sequel do
   let(:instance) { @model.first }
 
   before :all do
-    @database = if RUBY_ENGINE == 'jruby'
-      Sequel.connect('jdbc:sqlite::memory:')
-    else
-      Sequel.connect('sqlite:/')
-    end
+    @database = Sequel.sqlite
 
     @dataset = @database[:products]
 
