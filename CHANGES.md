@@ -1,3 +1,11 @@
+# 2.0.0
+
+* Added Monies#to_f method
+
+* Added Monies#to_json method
+
+* Changed required\_ruby\_version to >= 3.3.0
+
 # 1.2.0
 
 * Added exception argument to Monies method
