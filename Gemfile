@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 group :test do
-  gem 'activerecord', '~> 7'
+  gem 'activerecord', '~> 8'
   gem 'bigdecimal', '~> 3'
   gem 'percentage', '~> 2'
   gem 'rspec-core', '~> 3'
