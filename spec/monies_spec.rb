@@ -807,6 +807,12 @@ describe Monies do
     end
   end
 
+  describe '#to_f' do
+    it 'returns a float' do
+      expect(subject.to_f).to eq(1.99)
+    end
+  end
+
   describe '#to_i' do
     it 'returns an integer' do
       expect(Monies.new(0, 0, 'GBP').to_i).to eq(0)

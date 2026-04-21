@@ -385,6 +385,10 @@ class Monies
     BigDecimal(Monies::Digits.dump(self))
   end
 
+  def to_f
+    @value.to_f / BASE ** @scale
+  end
+
   def to_i
     @value / BASE ** @scale
   end
