@@ -217,11 +217,11 @@ class Monies
   end
 
   def coerce(other)
-    unless other.respond_to?(:zero?) && other.zero?
-      raise TypeError, "#{self.class} can't be coerced into #{other.class}"
+    if other.respond_to?(:zero?) && other.zero?
+      return self.class.new(0, 0, @currency), self
     end
 
-    return self, other
+    raise TypeError, "#{self.class} can't be coerced into #{other.class}"
   end
 
   def convert(other, currency = nil)

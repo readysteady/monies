@@ -214,7 +214,7 @@ describe Monies do
       it 'is commutative' do
         result = 0 + subject
 
-        expect(result.object_id).to eq(subject.object_id)
+        expect(result).to eq(subject)
       end
     end
 
@@ -253,6 +253,12 @@ describe Monies do
         result = subject - 0
 
         expect(result.object_id).to eq(subject.object_id)
+      end
+
+      it 'returns a negative value' do
+        result = 0 - subject
+
+        expect(result).to eq(Monies.new(-value, scale, 'GBP'))
       end
     end
 
