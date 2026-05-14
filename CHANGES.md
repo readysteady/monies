@@ -1,3 +1,7 @@
+# 2.0.1
+
+* Fixed subtraction from zero
+
 # 2.0.0
 
 * Added Monies#to_f method
